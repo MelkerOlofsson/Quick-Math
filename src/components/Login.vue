@@ -1,8 +1,4 @@
 <template>
-  <div class="box">
-    <header>
-      <img class="logo-box" src="/calculator.png" alt="Logo" />
-    </header>
     <div class="container">
       <h1 class="title">
         Quick <br />
@@ -21,7 +17,6 @@
         Invalid email or password. Please try again.
       </p>
     </div>
-  </div>
 </template>
 
 <script>
@@ -38,7 +33,7 @@ export default {
       // Check if email and password match
       if (this.email === "guest01" && this.password === "123") {
         // Redirect to the next page -- not created yet -- need router.js and destination page
-        this.$router.push({ name: "NextPage" });
+        this.$router.push({ name: "Difficulty" });
       } else {
         this.invalidLogin = true;
       }
@@ -48,20 +43,6 @@ export default {
 </script>
 
 <style scoped>
-header {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: #db4c4c;
-}
-
-.logo-box {
-  width: 60px;
-}
-.box {
-  background-color: #ded6d6;
-  min-height: 100vh;
-}
 .container {
   display: flex;
   flex-direction: column;
