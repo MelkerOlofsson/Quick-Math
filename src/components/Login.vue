@@ -1,12 +1,12 @@
 <template>
   <div class="box">
     <header>
-      <img class="logo-box" src="../../public/calculator.png" alt="Logo" />
+      <img class="logo-box" src="/calculator.png" alt="Logo" />
     </header>
     <div class="container">
       <h1 class="title">
         Quick <br />
-        Maths
+        Math
       </h1>
       <div class="content">
         <p>Your daily math dosage</p>
