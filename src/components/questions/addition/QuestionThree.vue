@@ -1,34 +1,34 @@
 <template>
   <div class="question-container">
-    <h2>1 + 3 = _</h2>
+    <h2>11 + 5 = _</h2>
   </div>
   <div class="answers-container">
     <input
       class="answer-button"
       type="button"
-      value="3"
-      @click="answerClicked(3)"
+      value="18"
+      @click="answerClicked(18)"
       :disabled="answerInput !== null"
     />
     <input
       class="answer-button"
       type="button"
-      value="5"
-      @click="answerClicked(5)"
+      value="16"
+      @click="answerClicked(16)"
       :disabled="answerInput !== null"
     />
     <input
       class="answer-button"
       type="button"
-      value="4"
-      @click="answerClicked(4)"
+      value="14"
+      @click="answerClicked(14)"
       :disabled="answerInput !== null"
     />
     <input
       class="answer-button"
       type="button"
-      value="6"
-      @click="answerClicked(6)"
+      value="15"
+      @click="answerClicked(15)"
       :disabled="answerInput !== null"
     />
   </div>
@@ -44,7 +44,7 @@
   export default {
     data() {
       return {
-        correctAnswer: 4,
+        correctAnswer: 16,
         questionPassed: null,
         answerInput: null
       }

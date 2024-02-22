@@ -1,19 +1,43 @@
 <template>
   <h1>Question {{ questionNumber }}/5</h1>
-  <QuestionOne />
+  <QuestionOne v-if="questionNumber === 1" @to-next-question="toNextQuestion"/>
+  <QuestionTwo v-else-if="questionNumber === 2" @to-next-question="toNextQuestion"/>
+  <QuestionThree v-else-if="questionNumber === 3" @to-next-question="toNextQuestion"/>
+  <QuestionFour v-else-if="questionNumber === 4" @to-next-question="toNextQuestion"/>
+  <QuestionFive v-else-if="questionNumber === 5" @to-next-question="toNextQuestion"/>
+
 </template>
 
 <script>
 
 import QuestionOne from '../components/questions/addition/QuestionOne.vue'
+import QuestionTwo from '../components/questions/addition/QuestionTwo.vue'
+import QuestionThree from '../components/questions/addition/QuestionThree.vue'
+import QuestionFour from '../components/questions/addition/QuestionFour.vue'
+import QuestionFive from '../components/questions/addition/QuestionFive.vue'
 
 export default {
   components: {
-    QuestionOne
+    QuestionOne,
+    QuestionTwo,
+    QuestionThree,
+    QuestionFour,
+    QuestionFive
   },
   data() {
     return {
-      questionNumber: 1
+      questionNumber: 1,
+      totalScore: 0
+    }
+  },
+  methods: {
+    // Byter fråga
+    toNextQuestion(correctAnswer) {
+      this.questionNumber++
+      // Håller koll på antal korrekta svar
+      if (correctAnswer === true) {
+        this.totalScore += correctAnswer
+      }
     }
   }
 }
