@@ -53,6 +53,8 @@ export default {
   font-family: kavoon, arial, helvetica, sans-serif;
   font-size: 4rem;
   margin-bottom: 2rem;
+  text-align: center;
+  max-width: 20rem;
 }
 .content {
   text-align: center;
