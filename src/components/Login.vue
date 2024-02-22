@@ -1,8 +1,7 @@
 <template>
     <div class="container">
       <h1 class="title">
-        Quick <br />
-        Math
+        Quick Math
       </h1>
       <div class="content">
         <p>Your daily math dosage</p>
@@ -53,6 +52,8 @@ export default {
   font-family: kavoon, arial, helvetica, sans-serif;
   font-size: 4rem;
   margin-bottom: 2rem;
+  text-align: center;
+  max-width: 20rem;
 }
 .content {
   text-align: center;
