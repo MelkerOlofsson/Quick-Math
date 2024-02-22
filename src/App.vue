@@ -2,7 +2,7 @@
   <div class="box">
     <nav>
       <div class="box-content">
-        <a v-if="notInHomePage" @click="navigateToDifficulty">
+        <a v-if="notInHomePage" @click="navigateToCategory">
           <img class="logo push-left" src="/calculator.png" alt="Logo" />
         </a>
         <img v-else class="logo" src="/calculator.png" alt="Logo" />
@@ -32,9 +32,9 @@ export default {
       // Navigate back to the login page
       this.$router.push({ name: "Home" });
     },
-    navigateToDifficulty() {
-      // Navigate to the difficulty page
-      this.$router.push({ name: "Difficulty" });
+    navigateToCategory() {
+      // Navigate to the Category page
+      this.$router.push({ name: "Category" });
     },
   },
 };
