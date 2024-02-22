@@ -33,7 +33,7 @@ export default {
       // Check if email and password match
       if (this.email === "guest01" && this.password === "123") {
         // Redirect to the next page -- not created yet -- need router.js and destination page
-        this.$router.push({ name: "Difficulty" });
+        this.$router.push({ name: "Category" });
       } else {
         this.invalidLogin = true;
       }
