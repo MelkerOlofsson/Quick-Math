@@ -1,16 +1,34 @@
+<script>
+export default {
+  data(){
+    return{
+      categories:[
+        "Addition",
+        "Subtraktion",
+        "Multiplikation",
+        "Division",
+        "Geometri",
+        "Decimaler",
+        "Fraktioner",
+        "Trigonometri",
+        "Probabilitet"
+      ]
+    }
+  },
+  methods: {
+    category1(/*destination*/) {
+      this.$router.push({ name: /*destination*/ "Difficulty"});
+    },
+  },
+  
+};
+</script>
+
 <template>
   <div class="container">
     <h1 class="title">Categories</h1>
-    <div class="grid-container">
-      <div class="item1">Addtion</div>
-      <div class="item2">Subtraktion</div>
-      <div class="item3">Multiplikation</div>
-      <div class="item4">Division</div>
-      <div class="item5">Geometri</div>
-      <div class="item6">Decimaler</div>
-      <div class="item7">Fraktioner</div>
-      <div class="item8">Trigonometri</div>
-      <div class="item9">Probabilitet</div>
+    <div class="grid-container" >
+      <div v-for="category in categories" @click="category1(/*category*/)">{{ category }}</div>
     </div>
   </div>
 </template>
@@ -21,12 +39,10 @@
   flex-direction: column;
   align-items: center;
   margin-top: 1rem;
-  background: red;
   margin: 2rem;
 }
 
 .title {
-  background-color: blue;
   font-family: kavoon, arial, helvetica, sans-serif;
   font-size: 4rem;
   margin-bottom: 2rem;
@@ -38,16 +54,20 @@
   display: grid;
   grid-template-columns: auto auto auto ;
   grid-gap: 30px;
-  background-color: #2196F3;
   padding: 10px;
 }
 
 .grid-container > div {
-  background-color: rgba(255, 255, 255, 0.8);
+  background-color: white;
   text-align: center;
   padding: 20px 0;
   font-size: 30px;
   border-radius: 10px;
 
+}
+
+.grid-container > div:hover{
+  cursor: pointer;
+  background-color: rgba(128, 128, 128, 0.2);
 }
 </style>
