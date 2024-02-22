@@ -3,6 +3,7 @@ import { createRouter, createWebHashHistory } from 'vue-router'
 import Home from './views/Home.vue'
 import Difficulty from './views/Difficulty.vue'
 import Category from './views/Category.vue'
+import Question from './views/Question.vue'
 import Result from './views/Result.vue'
 
 export default createRouter({
@@ -22,6 +23,11 @@ export default createRouter({
       component: Category,
       path: '/category',
       name: 'Category'
+    },
+    {
+      component: Question,
+      path: '/question',
+      name: 'Question'
     },
     {
       component: Result,

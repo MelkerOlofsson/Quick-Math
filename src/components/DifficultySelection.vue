@@ -8,13 +8,13 @@
 </template>
 
 <script>
-// export default {
-//   methods: {
-//     beginner() {
-//       this.$router.push({ name: "BeginnerPage" });
-//     },
-//   },
-// };
+export default {
+  methods: {
+    beginner() {
+      this.$router.push({ name: "Question" });
+    },
+  },
+};
 </script>
 
 <style scoped>
