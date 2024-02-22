@@ -35,7 +35,7 @@
   <div v-if="answerInput !== null" class="question-answered">
     <h3 v-if="questionPassed === true">Right!</h3>
     <h3 v-if="questionPassed === false">Wrong!</h3>
-    <input type="button" value="Next question &#x2192;" @click="$emit('to-next-question', this.questionPassed)">
+    <input type="button" value="Finish quiz &#x2192;" @click="$emit('finish-quiz', this.questionPassed)">
   </div>
 </template>
 
@@ -59,6 +59,6 @@
         }
       }
     },
-    emits: ["to-next-question"]
+    emits: ["to-next-question", "finish-quiz"]
   }
 </script>

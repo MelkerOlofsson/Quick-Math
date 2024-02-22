@@ -4,7 +4,7 @@
   <QuestionTwo v-else-if="questionNumber === 2" @to-next-question="toNextQuestion"/>
   <QuestionThree v-else-if="questionNumber === 3" @to-next-question="toNextQuestion"/>
   <QuestionFour v-else-if="questionNumber === 4" @to-next-question="toNextQuestion"/>
-  <QuestionFive v-else-if="questionNumber === 5" @to-next-question="toNextQuestion"/>
+  <QuestionFive v-else-if="questionNumber === 5" @finish-quiz="finishQuiz"/>
 
 </template>
 
@@ -38,6 +38,12 @@ export default {
       if (correctAnswer === true) {
         this.totalScore += correctAnswer
       }
+    },
+    finishQuiz(correctAnswer) {
+      if (correctAnswer === true) {
+        this.totalScore += correctAnswer
+      };
+      this.$router.push({ name: "Result" });
     }
   }
 }
