@@ -1,10 +1,13 @@
 <template>
-  <h1>Question {{ questionNumber }}/5</h1>
-  <QuestionOne v-if="questionNumber === 1" @to-next-question="toNextQuestion"/>
-  <QuestionTwo v-else-if="questionNumber === 2" @to-next-question="toNextQuestion"/>
-  <QuestionThree v-else-if="questionNumber === 3" @to-next-question="toNextQuestion"/>
-  <QuestionFour v-else-if="questionNumber === 4" @to-next-question="toNextQuestion"/>
-  <QuestionFive v-else-if="questionNumber === 5" @finish-quiz="finishQuiz"/>
+
+  <div class="question-container">
+    <h1>Question {{ questionNumber }}/5</h1>
+    <QuestionOne v-if="questionNumber === 1" @to-next-question="toNextQuestion"/>
+    <QuestionTwo v-else-if="questionNumber === 2" @to-next-question="toNextQuestion"/>
+    <QuestionThree v-else-if="questionNumber === 3" @to-next-question="toNextQuestion"/>
+    <QuestionFour v-else-if="questionNumber === 4" @to-next-question="toNextQuestion"/>
+    <QuestionFive v-else-if="questionNumber === 5" @finish-quiz="finishQuiz"/>
+  </div>
 
 </template>
 
@@ -49,3 +52,20 @@ export default {
 }
 
 </script>
+
+<style scoped>
+
+.question-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+h1 {
+  font-family: kavoon, arial, helvetica, sans-serif;
+  font-size: 3rem;
+  margin: 4rem;
+}
+
+
+</style>
