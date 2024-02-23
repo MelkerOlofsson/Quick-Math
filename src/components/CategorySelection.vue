@@ -4,14 +4,14 @@ export default {
     return{
       categories:[
         "Addition",
-        "Subtraktion",
-        "Multiplikation",
+        "Subtraction",
+        "Multiplication",
         "Division",
         "Geometri",
-        "Decimaler",
-        "Fraktioner",
-        "Trigonometri",
-        "Probabilitet"
+        "Decimals",
+        "Fractions",
+        "Trigonometry",
+        "Probability"
       ]
     }
   },
