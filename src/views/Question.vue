@@ -46,7 +46,8 @@ export default {
       if (correctAnswer === true) {
         this.totalScore += correctAnswer
       };
-      this.$router.push({ name: "Result" });
+      console.log("detta körs")
+      this.$router.push({ name: "Result", params: { score: this.totalScore, total: this.questionNumber } });
     }
   }
 }

@@ -1,6 +1,6 @@
 <template>
   <div class="question-container">
-    <h2>4 + 3 = _</h2>
+    <h2>{{ question }}</h2>
   </div>
   <div class="answers-container">
     <!-- Använder v-for för att skapa svarsalternativen -->
@@ -26,6 +26,7 @@
   export default {
     data() {
       return {
+        question: "4 + 3 = _", // Frågan
         correctAnswer: 7, // Svaret på frågan
         answerOptions: [7, 6, 9, 8], // Svarsalternativen på frågan
         questionPassed: null,

@@ -31,8 +31,9 @@ export default createRouter({
     },
     {
       component: Result,
-      path: '/result',
+      path: '/result/:score/:total',
       name: 'Result',
+      props: true
     }
   ]
 })

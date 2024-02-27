@@ -20,7 +20,7 @@ export default {
       this.$router.push({ name: /*destination*/ "Difficulty"});
     },
   },
-  
+
 };
 </script>
 

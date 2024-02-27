@@ -10,26 +10,21 @@
 
 <script>
 export default {
-    name: 'ResultPage',
-    data() {
-        return {
-            // Placeholder scores until quiz functionality is implemented
-            score: 4,
-            total: 5,
-        };
+  props: ['score', 'total'],
+  methods: {
+    retakeQuiz() {
+      // Navigate back to the quiz page to retake the quiz
+      this.$router.push({ name: "Question" });
     },
-    methods: {
-        retakeQuiz() {
-            // Placeholder function for retaking the quiz
-            console.log('Retake quiz action');
-        },
-        nextQuiz() {
-            // Placeholder function for proceeding to the next quiz
-            console.log('Next quiz action');
-        },
+    nextQuiz() {
+      // Placeholder function for proceeding to the next quiz
+      console.log("Next quiz action");
     },
+  },
 };
 </script>
+
+
 
 <style scoped>
 .results-container {
@@ -68,5 +63,5 @@ button:hover {
   cursor: pointer;
   background-color: #80808033;
 }
-    
+
 </style>

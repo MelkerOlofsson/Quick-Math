@@ -1,6 +1,7 @@
 <template>
   <div class="question-container">
-    <h2>1 + 3 = _</h2>
+    <!-- Skapar och visar frågan -->
+    <h2>{{ question }}</h2>
   </div>
   <div class="answers-container">
     <!-- Använder v-for för att skapa svarsalternativen -->
@@ -14,6 +15,7 @@
       :disabled="answerInput !== null"
     />
   </div>
+  <!-- Om frågan har besvarats så visas detta -->
   <div v-if="answerInput !== null" class="question-answered">
     <h3 v-if="questionPassed === true" class="right-answer">Right!</h3>
     <h3 v-if="questionPassed === false" class="wrong-answer">Wrong!</h3>
@@ -26,6 +28,7 @@
   export default {
     data() {
       return {
+        question: "1 + 3 = _", // Frågan
         correctAnswer: 4, // Svaret på frågan
         answerOptions: [3, 5, 4, 6], // Svarsalternativen på frågan
         questionPassed: null,

@@ -1,6 +1,6 @@
 <template>
   <div class="question-container">
-    <h2>11 + 5 = _</h2>
+    <h2>{{ question }}</h2>
   </div>
   <div class="answers-container">
     <!-- Använder v-for för att skapa svarsalternativen -->
@@ -26,6 +26,7 @@
   export default {
     data() {
       return {
+        question: "11 + 5 = _", // Frågan
         correctAnswer: 16, // Svaret på frågan
         answerOptions: [18, 16, 14, 15], // Svarsalternativen på frågan
         questionPassed: null,
