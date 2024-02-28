@@ -1,6 +1,18 @@
 <template>
     <div class="results-container">
         <h1>You scored {{ score }} out of {{ total }}!</h1>
+        <div class="star-container">
+          <img
+            v-for="n in this.stars"
+            src="/icons8-star-100.png"
+            alt="Earned star"
+          />
+          <img
+            v-for="n in (3 - this.stars)"
+            src="/icons8-star-unlit-100.png"
+            alt="Unlit star"
+          />
+        </div>
         <div class="button-container">
             <button @click="retakeQuiz">Retake quiz</button>
             <button @click="nextQuiz">Next quiz</button>
@@ -21,6 +33,20 @@ export default {
       console.log("Next quiz action");
     },
   },
+  computed: {
+    // Calculate earned star medals
+    stars() {
+      if (this.score < 1) {
+        return 0;
+      } else if (this.score <= 2) {
+        return 1;
+      } else if (this.score <= 4) {
+        return 2;
+      } else {
+        return 3;
+      };
+    }
+  }
 };
 </script>
 
@@ -28,24 +54,28 @@ export default {
 
 <style scoped>
 .results-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    height: 90vh;
-    color: var(--color);
-    font-family: "Avenir", Helvetica, Arial, sans-serif;
-
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 90vh;
+  color: var(--color);
+  font-family: "Avenir", Helvetica, Arial, sans-serif;
 }
 
 h1 {
-    font-size: 2.5rem;
-    margin-bottom: 2rem;
+  font-size: 2.5rem;
+  margin-bottom: 2rem;
+}
+
+.star-container {
+  display: flex;
+  margin: 1rem;
 }
 
 .button-container {
-    display: flex;
-    gap: 1rem;
+  display: flex;
+  gap: 1rem;
 }
 
 button {

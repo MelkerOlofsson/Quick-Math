@@ -6,7 +6,7 @@
     <QuestionTwo v-else-if="questionNumber === 2" @to-next-question="toNextQuestion"/>
     <QuestionThree v-else-if="questionNumber === 3" @to-next-question="toNextQuestion"/>
     <QuestionFour v-else-if="questionNumber === 4" @to-next-question="toNextQuestion"/>
-    <QuestionFive v-else-if="questionNumber === 5" @finish-quiz="finishQuiz"/>
+    <QuestionFive v-else-if="questionNumber === 5" @to-next-question="toNextQuestion"/>
   </div>
 
 </template>
@@ -30,25 +30,24 @@ export default {
   data() {
     return {
       questionNumber: 1,
-      totalScore: 0
+      totalScore: 0,
+      questionCount: Object.keys(this.$options.components).length
     }
   },
   methods: {
-    // Byter fråga
+    // Funktion som byter fråga eller avslutar quizet om inga fler frågor finns.
     toNextQuestion(correctAnswer) {
-      this.questionNumber++
-      // Håller koll på antal korrekta svar
+      // Kollar om svaret var korrekt på förgående fråga.
       if (correctAnswer === true) {
-        this.totalScore += correctAnswer
-      }
-    },
-    finishQuiz(correctAnswer) {
-      if (correctAnswer === true) {
-        this.totalScore += correctAnswer
+        this.totalScore += correctAnswer;
       };
-      console.log("detta körs")
-      this.$router.push({ name: "Result", params: { score: this.totalScore, total: this.questionNumber } });
-    }
+      // Kollar om det finns en till fråga
+      if (this.questionNumber < this.questionCount) {
+        this.questionNumber++;
+      } else {
+        this.$router.push({ name: "Result", params: { score: this.totalScore, total: this.questionNumber } });
+      };
+    },
   }
 }
 
