@@ -2,8 +2,8 @@
     <div class="navbar-container">
         
         <a href="#" class="navbar-link">Home</a>
-        <a href="http://localhost:5173/#/category" class="navbar-link">Category</a>
-        <a href="http://localhost:5173/#/faq" class="navbar-link">FAQ</a>
+        <a href="/category" class="navbar-link">Category</a>
+        <a href="/faq" class="navbar-link">FAQ</a>
     </div>
 </template>
 
