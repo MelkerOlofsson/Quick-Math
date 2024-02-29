@@ -5,6 +5,7 @@ import Difficulty from './views/Difficulty.vue'
 import Category from './views/Category.vue'
 import Question from './views/Question.vue'
 import Result from './views/Result.vue'
+import FAQ from './views/FAQ.vue'
 
 export default createRouter({
   history: createWebHashHistory(),
@@ -34,6 +35,11 @@ export default createRouter({
       path: '/result/:score/:total',
       name: 'Result',
       props: true
+    },
+    {
+      component: FAQ,
+      path: '/faq',
+      name: 'FAQ'
     }
   ]
 })
