@@ -1,9 +1,8 @@
 <template>
     <div class="navbar-container">
-        
         <a href="#" class="navbar-link">Home</a>
-        <a href="/category" class="navbar-link">Category</a>
-        <a href="/faq" class="navbar-link">FAQ</a>
+        <a href="#/category" class="navbar-link">Category</a>
+        <a href="#/faq" class="navbar-link">FAQ</a>
     </div>
 </template>
 
@@ -27,7 +26,7 @@ export default {
   margin: 0 10px;
   padding: 0.25rem 0.75rem;
   font-size: 0.9rem;
-  color: #1c1c1c; 
+  color: #1c1c1c;
   background-color: transparent;
   border: 2px solid transparent;
   border-radius: 8px;
@@ -37,7 +36,7 @@ export default {
   cursor: pointer;
   position: relative;
   overflow: hidden;
-  z-index: 1; 
+  z-index: 1;
 }
 .navbar-container::before {
   content: '';
@@ -45,8 +44,8 @@ export default {
   top: -10px;
   left: 0;
   right: 0;
-  height: 5px; 
-  background-color: #e0e0e0; 
+  height: 5px;
+  background-color: #e0e0e0;
   border-radius: 2px;
 }
 .navbar-link::before {
@@ -56,10 +55,10 @@ export default {
   height: 100%;
   top: 0;
   left: -100%;
-  background-color: #e0e0e0; 
+  background-color: #e0e0e0;
   border-radius: 8px;
   transition: all 0.3s ease;
-  z-index: -1; 
+  z-index: -1;
 }
 
 .navbar-link:hover::before {
@@ -67,7 +66,7 @@ export default {
 }
 
 .navbar-link:hover {
-  color: #1c1c1c; 
+  color: #1c1c1c;
 }
 
 </style>
