@@ -4,6 +4,7 @@
     <button @click="beginner">Beginner (5-8 years old)</button>
     <button>Intermediate (9-12 years old)</button>
     <button>Expert (13-17 years old)</button>
+    <button @click="Test">Challenge: Answer until you get one wrong</button>
   </div>
 </template>
 
@@ -12,6 +13,9 @@ export default {
   methods: {
     beginner() {
       this.$router.push({ name: "Question" });
+    },
+    Test() {
+      this.$router.push({ name: "Test" });
     },
   },
 };
