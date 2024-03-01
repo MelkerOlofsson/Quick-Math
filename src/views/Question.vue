@@ -63,7 +63,7 @@ export default {
 
 h1 {
   font-family: kavoon, arial, helvetica, sans-serif;
-  font-size: 3rem;
+  font-size: 2.4rem;
   margin: 4rem;
 }
 
