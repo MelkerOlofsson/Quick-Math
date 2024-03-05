@@ -1,0 +1,40 @@
+{
+  "category": {
+    "addition": {
+      "difficulty": {
+        "beginner": [
+          {
+            "id": 1,
+            "question": "1 + 3 = _",
+            "correctAnswer": 4,
+            "answerOptions": [3, 5, 4, 6]
+          },
+          {
+            "id": 2,
+            "question": "4 + 3 = _",
+            "correctAnswer": 7,
+            "answerOptions": [7, 6, 9, 8]
+          },
+          {
+            "id": 3,
+            "question": "11 + 5 = _",
+            "correctAnswer": 16,
+            "answerOptions": [18, 16, 14, 15]
+          },
+          {
+            "id": 4,
+            "question": "9 + 11 = _",
+            "correctAnswer": 20,
+            "answerOptions": [18, 21, 19, 20]
+          },
+          {
+            "id": 5,
+            "question": "8 + 8 = _",
+            "correctAnswer": 16,
+            "answerOptions": [17, 16, 15, 18]
+          }
+        ]
+      }
+    }
+  }
+}
