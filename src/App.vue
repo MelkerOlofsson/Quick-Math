@@ -11,12 +11,19 @@
         Logout
       </button>
     </nav>
+     <NavBar />
     <RouterView />
   </div>
 </template>
 
 <script>
+// Import NavBar 
+import NavBar from './components/NavBar.vue';
+
 export default {
+  components: {
+    NavBar
+  },
   computed: {
     showLogout() {
       // Don't show the logout button in Home page
@@ -45,6 +52,7 @@ export default {
   background-color: #ded6d6;
   min-height: 100vh;
 }
+
 
 nav {
   display: flex;

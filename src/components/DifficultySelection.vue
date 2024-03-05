@@ -45,6 +45,7 @@ button {
   padding: 10px;
   font-size: 16px;
   flex-grow: 1;
+  flex-grow: 1;
   height: 60px;
   background-color: white;
   border: none;

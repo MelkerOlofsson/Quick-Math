@@ -4,12 +4,12 @@
         <div class="star-container">
           <img
             v-for="n in this.stars"
-            src="/icons8-star-100.png"
+            src="../assets/icons8-star-100.png"
             alt="Earned star"
           />
           <img
             v-for="n in (3 - this.stars)"
-            src="/icons8-star-unlit-100.png"
+            src="../assets/icons8-star-unlit-100.png"
             alt="Unlit star"
           />
         </div>
