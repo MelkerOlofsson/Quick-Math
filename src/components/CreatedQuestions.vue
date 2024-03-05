@@ -1,10 +1,11 @@
 <template>
   <div class="question-container">
-    <h2>{{ question }}</h2>
+    <!-- Skapar och visar frågan -->
+    <h2>{{ questionObject.question }}</h2>
   </div>
   <div class="answers-container">
     <!-- Använder v-for för att skapa svarsalternativen -->
-    <input v-for="optionValue in answerOptions"
+    <input v-for="optionValue in questionObject.answerOptions"
       :key="optionValue"
       class="answer-button"
       type="button"
@@ -14,10 +15,11 @@
       :disabled="answerInput !== null"
     />
   </div>
+  <!-- Om frågan har besvarats så visas detta -->
   <div v-if="answerInput !== null" class="question-answered">
     <h3 v-if="questionPassed === true" class="right-answer">Right!</h3>
     <h3 v-if="questionPassed === false" class="wrong-answer">Wrong!</h3>
-    <input type="button" value="Next question &#x2192;" @click="$emit('to-next-question', this.questionPassed)">
+    <input type="button" value="Next question &#x2192;" @click="handleNext">
   </div>
 </template>
 
@@ -26,27 +28,37 @@
   export default {
     data() {
       return {
-        question: "4 + 3 = _", // Frågan
-        correctAnswer: 7, // Svaret på frågan
-        answerOptions: [7, 6, 9, 8], // Svarsalternativen på frågan
         questionPassed: null,
         answerInput: null,
       }
     },
+    props: {
+      questionObject: {
+        // Innehåller frågan med följande objektsnycklar: "question", "correctAnswer", "answerOptions".
+        type: Object
+      }
+    },
     methods: {
-      answerClicked(value) { // Funktion som kollar om svaret var rätt eller fel
+
+      handleNext() { // Återställer inför nästa fråga och efterfrågar en ny fråga genom "emit".
+        this.$emit('to-next-question', this.questionPassed);
+        this.questionPassed = null;
+        this.answerInput = null;
+      },
+
+      answerClicked(value) { // Kollar om svaret var rätt eller fel.
         this.answerInput = value;
-        if (this.answerInput === this.correctAnswer) {
+        if (this.answerInput === this.questionObject.correctAnswer) {
           this.questionPassed = true;
         } else {
           this.questionPassed = false;
-        }
+        };
       },
 
-      rightOrWrongAnswer(value) { // Funktion som dynamiskt returenar en klass
+      rightOrWrongAnswer(value) { // Dynamiskt returenar en klass vid rätt eller fel svar.
         return {
-          'correct-answer-button': this.correctAnswer === value,
-          'wrong-answer-button': this.answerInput === value && this.answerInput !== this.correctAnswer
+          'correct-answer-button': this.questionObject.correctAnswer === value,
+          'wrong-answer-button': this.answerInput === value && this.answerInput !== this.questionObject.correctAnswer
         }
       }
     },

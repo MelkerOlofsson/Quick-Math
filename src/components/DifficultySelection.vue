@@ -30,9 +30,11 @@ export default {
 
 .level-buttons {
   display: flex;
-  flex-direction: column;
+  flex-wrap: wrap;
+  max-width: 400px;
   justify-content: center;
   align-items: center;
+  margin:auto
 }
 
 button {
@@ -42,7 +44,7 @@ button {
   margin: 10px;
   padding: 10px;
   font-size: 16px;
-  width: 400px;
+  flex-grow: 1;
   height: 60px;
   background-color: white;
   border: none;
