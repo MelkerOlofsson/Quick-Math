@@ -1,8 +1,8 @@
 <script>
 export default {
-  data(){
-    return{
-      categories:[
+  data() {
+    return {
+      categories: [
         "Addition",
         "Subtraction",
         "Multiplication",
@@ -11,24 +11,25 @@ export default {
         "Decimals",
         "Fractions",
         "Trigonometry",
-        "Probability"
-      ]
-    }
+        "Probability",
+      ],
+    };
   },
   methods: {
     category1(/*destination*/) {
-      this.$router.push({ name: /*destination*/ "Difficulty"});
+      this.$router.push({ name: /*destination*/ "Difficulty" });
     },
   },
-
 };
 </script>
 
 <template>
   <div class="container">
     <h1 class="title">Categories</h1>
-    <div class="grid-container" >
-      <div v-for="category in categories" @click="category1(/*category*/)">{{ category }}</div>
+    <div class="grid-container">
+      <div v-for="category in categories" @click="category1(/*category*/)">
+        {{ category }}
+      </div>
     </div>
   </div>
 </template>
@@ -38,8 +39,7 @@ export default {
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-top: 1rem;
-  margin: 2rem;
+  margin: 1rem 2rem 0 2rem;
 }
 
 .title {
@@ -52,7 +52,7 @@ export default {
 .grid-container {
   width: 60%;
   display: grid;
-  grid-template-columns: auto auto auto ;
+  grid-template-columns: auto auto auto;
   grid-gap: 30px;
   padding: 10px;
 }
@@ -63,11 +63,21 @@ export default {
   padding: 20px 0;
   font-size: 30px;
   border-radius: 10px;
-
 }
 
-.grid-container > div:hover{
+.grid-container > div:hover {
   cursor: pointer;
   background-color: rgba(128, 128, 128, 0.2);
+}
+
+@media only screen and (max-width: 768px) {
+  .title {
+    font-size: 2rem;
+  }
+
+  .grid-container {
+    width: 90%;
+    grid-template-columns: auto;
+  }
 }
 </style>

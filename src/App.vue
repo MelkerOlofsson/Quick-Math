@@ -2,36 +2,35 @@
   <div class="box">
     <nav>
       <div class="box-content">
-        <a v-if="notInHomePage" @click="navigateToCategory">
-          <img class="logo push-left" src="/calculator.png" alt="Logo" />
-        </a>
+        <img
+          v-if="showIcon"
+          class="logo push-left"
+          src="/calculator.png"
+          alt="Logo"
+        />
         <img v-else class="logo" src="/calculator.png" alt="Logo" />
       </div>
-      <button v-if="showLogout" @click="logout" class="logout-button">
+      <button v-if="showIcon" @click="logout" class="logout-button">
         Logout
       </button>
     </nav>
-     <NavBar />
+    <NavBar />
     <RouterView />
   </div>
 </template>
 
 <script>
-// Import NavBar 
-import NavBar from './components/NavBar.vue';
+// Import NavBar
+import NavBar from "./components/NavBar.vue";
 
 export default {
   components: {
-    NavBar
+    NavBar,
   },
   computed: {
-    showLogout() {
-      // Don't show the logout button in Home page
-      return this.$route.name !== "Home";
-    },
-    notInHomePage() {
-      // Can't press Logo in Home page
-      return this.$route.name !== "Home";
+    showIcon() {
+      // Don't show the logout button in Home page and FAQ page
+      return this.$route.name !== "Home" && this.$route.name !== "FAQ";
     },
   },
   methods: {
@@ -50,9 +49,9 @@ export default {
 <style scoped>
 .box {
   background-color: #ded6d6;
-  min-height: 100vh;
+  min-height: 120vh;
+  height: auto;
 }
-
 
 nav {
   display: flex;
@@ -73,8 +72,7 @@ nav {
 }
 
 .push-left {
-  margin-left: 100px;
-  cursor: pointer;
+  margin-left: 104px;
 }
 
 .logout-button {

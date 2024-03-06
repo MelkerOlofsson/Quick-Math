@@ -133,6 +133,12 @@ export default {
 </template>
 
 <style scoped>
+.box-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
 
 .question-container {
   display: flex;
