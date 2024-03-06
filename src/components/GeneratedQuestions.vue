@@ -154,7 +154,7 @@ export default {
   justify-content: center;
   margin: 0 auto;
   max-width: 30rem;
-  margin: 4rem 0;
+  margin: 4rem auto;
 }
 
 .answer-button {
@@ -163,6 +163,7 @@ export default {
   border-radius: 1rem;
   padding: 2rem 4rem;
   font-size: 2rem;
+  width: 10rem;
 }
 
 .answer-button:hover {
@@ -196,5 +197,11 @@ h3 {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+}
+
+@media only screen and (max-width: 768px) {
+  .answers-container {
+    width: 90%;
+  }
 }
 </style>

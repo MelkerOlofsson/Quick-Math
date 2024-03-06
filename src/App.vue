@@ -49,7 +49,7 @@ export default {
 <style scoped>
 .box {
   background-color: #ded6d6;
-  min-height: 120vh;
+  min-height: 100vh;
   height: auto;
 }
 
