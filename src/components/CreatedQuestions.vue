@@ -19,7 +19,7 @@
   <div v-if="answerInput !== null" class="question-answered">
     <h3 v-if="questionPassed === true" class="right-answer">Right!</h3>
     <h3 v-if="questionPassed === false" class="wrong-answer">Wrong!</h3>
-    <input type="button" value="Next question &#x2192;" @click="handleNext">
+    <input type="button" value="Next &#x2192;" @click="handleNext">
   </div>
 </template>
 
@@ -78,14 +78,16 @@
   gap: 1rem;
   justify-content: center;
   max-width: 30rem;
-  margin-top: 4rem;
+  margin: 4rem 0;
 }
 
 .answer-button {
+  background-color: white;
   border: 2px solid transparent;
   border-radius: 1rem;
-  padding: 2rem 5rem;
+  padding: 2rem 4rem;
   font-size: 2rem;
+  min-width: 11rem;
 }
 
 .answer-button:hover {

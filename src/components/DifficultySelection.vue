@@ -1,9 +1,9 @@
 <template>
   <p>Choose your level:</p>
   <div class="level-buttons">
-    <button @click="beginner">Beginner (5-8 years old)</button>
-    <button>Intermediate (9-12 years old)</button>
-    <button>Expert (13-17 years old)</button>
+    <button @click="chosenCategory('beginner')">Beginner (5-8 years old)</button>
+    <button @click="chosenCategory('intermediate')">Intermediate (9-12 years old)</button>
+    <button @click="chosenCategory('expert')">Expert (13-17 years old)</button>
     <button @click="Test">Challenge: Answer until you get one wrong</button>
   </div>
 </template>
@@ -11,8 +11,8 @@
 <script>
 export default {
   methods: {
-    beginner() {
-      this.$router.push({ name: "Question" });
+    chosenCategory(chosenDifficulty) {
+      this.$router.push({ name: "Question", params: { difficulty: chosenDifficulty }});
     },
     Test() {
       this.$router.push({ name: "Test" });

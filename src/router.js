@@ -28,8 +28,9 @@ export default createRouter({
     },
     {
       component: Question,
-      path: "/question",
+      path: "/question/:difficulty",
       name: "Question",
+      props: true
     },
     {
       component: Test,

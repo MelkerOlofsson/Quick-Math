@@ -18,8 +18,8 @@ export default {
   },
   data() {
     return {
-      // Samtliga frågor ifrån 'questions.json' under "addition" och "beginner".
-      questionData: jsonData.category.addition.difficulty.beginner,
+      // Samtliga frågor ifrån 'questions.json' under "addition" och vald svårighetsgrad. Fråga 1-6 under svårighetsgraden "Beginner" är skapade av Melker Olofsson, resterande är genererade genom chatGPT och finns endast för att visa konceptet.
+      questionData: jsonData.category.addition.difficulty[this.difficulty],
 
       // Håller räkning.
       questionNumber: 1,
@@ -27,6 +27,7 @@ export default {
       questionCount: null,
     }
   },
+  props: ['difficulty'],
   methods: {
     // Funktion som kollar antal frågor.
     amountOfQuestion() {
@@ -72,7 +73,7 @@ export default {
 
 h1 {
   font-family: kavoon, arial, helvetica, sans-serif;
-  font-size: 2.4rem;
+  font-size: 2.3rem;
   margin: 4rem;
 }
 

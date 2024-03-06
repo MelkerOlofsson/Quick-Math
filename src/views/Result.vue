@@ -26,21 +26,21 @@ export default {
   methods: {
     retakeQuiz() {
       // Navigate back to the quiz page to retake the quiz
-      this.$router.push({ name: "Question" });
+      this.$router.go(-1);
     },
     nextQuiz() {
       // Placeholder function for proceeding to the next quiz
-      console.log("Next quiz action");
+      this.$router.push({ name: "Category" });
     },
   },
   computed: {
     // Calculate earned star medals
     stars() {
-      if (this.score < 1) {
+      if (this.score < (this.total / 4) * 1) {
         return 0;
-      } else if (this.score <= 2) {
+      } else if (this.score <= (this.total / 4) * 2) {
         return 1;
-      } else if (this.score <= 4) {
+      } else if (this.score <= (this.total / 4) * 3) {
         return 2;
       } else {
         return 3;

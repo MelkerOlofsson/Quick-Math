@@ -132,12 +132,7 @@ export default {
   </div>
 </template>
 
-<style>
-.box-content {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
+<style scoped>
 
 .question-container {
   display: flex;
@@ -153,15 +148,15 @@ export default {
   justify-content: center;
   margin: 0 auto;
   max-width: 30rem;
-  margin-top: 4rem;
+  margin: 4rem 0;
 }
 
 .answer-button {
+  background-color: white;
   border: 2px solid transparent;
   border-radius: 1rem;
-  padding: 2rem 5rem;
+  padding: 2rem 4rem;
   font-size: 2rem;
-  width: 13rem;
 }
 
 .answer-button:hover {
