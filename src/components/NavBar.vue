@@ -1,7 +1,7 @@
 <template>
   <div class="navbar-container">
     <a href="#" class="navbar-link">Home</a>
-    <a href="#/category" class="navbar-link" v-if="showIcon">Category</a>
+    <a href="#/category" class="navbar-link">Category</a>
     <a href="#/faq" class="navbar-link">FAQ</a>
   </div>
 </template>
@@ -11,8 +11,8 @@ export default {
   name: "NavBar",
   computed: {
     showIcon() {
-      // Don't show icon in Home page and FAQ page
-      return this.$route.name !== "Home" && this.$route.name !== "FAQ";
+      // Don't show icon in Home page
+      return this.$route.name !== "Home";
     },
   },
 };

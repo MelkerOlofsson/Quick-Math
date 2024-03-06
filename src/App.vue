@@ -14,7 +14,7 @@
         Logout
       </button>
     </nav>
-    <NavBar />
+    <NavBar v-if="showIcon" />
     <RouterView />
   </div>
 </template>
@@ -29,8 +29,8 @@ export default {
   },
   computed: {
     showIcon() {
-      // Don't show the logout button in Home page and FAQ page
-      return this.$route.name !== "Home" && this.$route.name !== "FAQ";
+      // Don't show the logout button in Home page
+      return this.$route.name !== "Home";
     },
   },
   methods: {
