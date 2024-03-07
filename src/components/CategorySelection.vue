@@ -34,6 +34,7 @@ export default {
 </template>
 
 <style scoped>
+
 .container {
   display: flex;
   flex-direction: column;
@@ -55,6 +56,7 @@ export default {
   grid-template-columns: auto auto auto ;
   grid-gap: 30px;
   padding: 10px;
+  align-items: center;
 }
 
 .grid-container > div {
@@ -70,4 +72,11 @@ export default {
   cursor: pointer;
   background-color: rgba(128, 128, 128, 0.2);
 }
+
+@media (max-width: 600px) {
+  .grid-container {
+    grid-template-columns: auto;
+  }
+}
+
 </style>
