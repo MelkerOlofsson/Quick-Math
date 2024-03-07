@@ -1,9 +1,9 @@
 <template>
   <p>Choose your level:</p>
   <div class="level-buttons">
-    <button @click="beginner">Beginner (5-8 years old)</button>
-    <button>Intermediate (9-12 years old)</button>
-    <button>Expert (13-17 years old)</button>
+    <button @click="chosenCategory('beginner')">Beginner (5-8 years old)</button>
+    <button @click="chosenCategory('intermediate')">Intermediate (9-12 years old)</button>
+    <button @click="chosenCategory('expert')">Expert (13-17 years old)</button>
     <button @click="Test">Challenge: Answer until you get one wrong</button>
   </div>
 </template>
@@ -11,8 +11,8 @@
 <script>
 export default {
   methods: {
-    beginner() {
-      this.$router.push({ name: "Question" });
+    chosenCategory(chosenDifficulty) {
+      this.$router.push({ name: "Question", params: { difficulty: chosenDifficulty }});
     },
     Test() {
       this.$router.push({ name: "Test" });
@@ -30,9 +30,11 @@ export default {
 
 .level-buttons {
   display: flex;
-  flex-direction: column;
+  flex-wrap: wrap;
   justify-content: center;
   align-items: center;
+  max-width: 400px;
+  margin: auto;
 }
 
 button {
@@ -42,7 +44,8 @@ button {
   margin: 10px;
   padding: 10px;
   font-size: 16px;
-  width: 400px;
+  flex-grow: 1;
+  flex-grow: 1;
   height: 60px;
   background-color: white;
   border: none;

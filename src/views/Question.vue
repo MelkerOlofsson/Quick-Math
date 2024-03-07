@@ -1,54 +1,64 @@
 <template>
 
   <div class="question-container">
-    <h1>Question {{ questionNumber }}/5</h1>
-    <QuestionOne v-if="questionNumber === 1" @to-next-question="toNextQuestion"/>
-    <QuestionTwo v-else-if="questionNumber === 2" @to-next-question="toNextQuestion"/>
-    <QuestionThree v-else-if="questionNumber === 3" @to-next-question="toNextQuestion"/>
-    <QuestionFour v-else-if="questionNumber === 4" @to-next-question="toNextQuestion"/>
-    <QuestionFive v-else-if="questionNumber === 5" @to-next-question="toNextQuestion"/>
+    <h1>Question {{ questionNumber }}/{{ questionCount }}</h1>
+    <CreatedQuestions :question-object="this.currentQuestion" @to-next-question="toNextQuestion"/>
   </div>
 
 </template>
 
 <script>
 
-import QuestionOne from '../components/questions/addition/QuestionOne.vue'
-import QuestionTwo from '../components/questions/addition/QuestionTwo.vue'
-import QuestionThree from '../components/questions/addition/QuestionThree.vue'
-import QuestionFour from '../components/questions/addition/QuestionFour.vue'
-import QuestionFive from '../components/questions/addition/QuestionFive.vue'
+import CreatedQuestions from '../components/CreatedQuestions.vue'
+import jsonData from '../assets/questions.json'
 
 export default {
   components: {
-    QuestionOne,
-    QuestionTwo,
-    QuestionThree,
-    QuestionFour,
-    QuestionFive
+    CreatedQuestions
   },
   data() {
     return {
+      // Samtliga frågor ifrån 'questions.json' under "addition" och vald svårighetsgrad. Fråga 1-6 under svårighetsgraden "Beginner" är skapade av Melker Olofsson, resterande är genererade genom chatGPT och finns endast för att visa konceptet.
+      questionData: jsonData.category.addition.difficulty[this.difficulty],
+
+      // Håller räkning.
       questionNumber: 1,
       totalScore: 0,
-      questionCount: Object.keys(this.$options.components).length
+      questionCount: null,
     }
   },
+  props: ['difficulty'],
   methods: {
+    // Funktion som kollar antal frågor.
+    amountOfQuestion() {
+      this.questionCount = this.questionData.length;
+    },
+
     // Funktion som byter fråga eller avslutar quizet om inga fler frågor finns.
     toNextQuestion(correctAnswer) {
       // Kollar om svaret var korrekt på förgående fråga.
       if (correctAnswer === true) {
-        this.totalScore += correctAnswer;
+        this.totalScore += 1;
       };
-      // Kollar om det finns en till fråga
+      // Kollar om det finns en till fråga.
       if (this.questionNumber < this.questionCount) {
         this.questionNumber++;
       } else {
         this.$router.push({ name: "Result", params: { score: this.totalScore, total: this.questionNumber } });
       };
     },
-  }
+  },
+
+  created() {
+    this.amountOfQuestion();
+  },
+
+  computed: {
+    // Hämtar nuvarande fråga.
+    currentQuestion() {
+      return this.questionData.find((question) => question.id === this.questionNumber);
+    },
+  },
 }
 
 </script>
@@ -63,7 +73,7 @@ export default {
 
 h1 {
   font-family: kavoon, arial, helvetica, sans-serif;
-  font-size: 3rem;
+  font-size: 2.3rem;
   margin: 4rem;
 }
 

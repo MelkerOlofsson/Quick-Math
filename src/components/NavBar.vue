@@ -1,14 +1,20 @@
 <template>
-    <div class="navbar-container">
-        <a href="#" class="navbar-link">Home</a>
-        <a href="#/category" class="navbar-link">Category</a>
-        <a href="#/faq" class="navbar-link">FAQ</a>
-    </div>
+  <div class="navbar-container">
+    <a href="#" class="navbar-link">Home</a>
+    <a href="#/category" class="navbar-link">Category</a>
+    <a href="#/faq" class="navbar-link">FAQ</a>
+  </div>
 </template>
 
 <script>
 export default {
-    name: "NavBar",
+  name: "NavBar",
+  computed: {
+    showIcon() {
+      // Don't show icon in Home page
+      return this.$route.name !== "Home";
+    },
+  },
 };
 </script>
 
@@ -39,7 +45,7 @@ export default {
   z-index: 1;
 }
 .navbar-container::before {
-  content: '';
+  content: "";
   position: absolute;
   top: -10px;
   left: 0;
@@ -49,7 +55,7 @@ export default {
   border-radius: 2px;
 }
 .navbar-link::before {
-  content: '';
+  content: "";
   position: absolute;
   width: 100%;
   height: 100%;
@@ -68,5 +74,4 @@ export default {
 .navbar-link:hover {
   color: #1c1c1c;
 }
-
 </style>
