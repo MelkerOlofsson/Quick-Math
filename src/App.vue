@@ -5,10 +5,10 @@
         <img
           v-if="showIcon"
           class="logo push-left"
-          src="/calculator.png"
+          src="/src/assets/calculator.png"
           alt="Logo"
         />
-        <img v-else class="logo" src="/calculator.png" alt="Logo" />
+        <img v-else class="logo" src="/src/assets/calculator.png" alt="Logo" />
       </div>
       <button v-if="showIcon" @click="logout" class="logout-button">
         Logout
